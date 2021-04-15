@@ -1,0 +1,7 @@
+-
+  uriPattern: 'polling'
+  defaults:
+    '@package': 'Wwwision.AssetRealtimeTest'
+    '@controller': Polling
+    '@action': index
+    '@format': html

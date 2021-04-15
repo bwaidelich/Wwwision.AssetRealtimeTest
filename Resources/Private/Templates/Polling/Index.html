@@ -1,0 +1,38 @@
+{namespace neos.media=Neos\Media\ViewHelpers}
+<h1>Polling</h1>
+<form action="{f:uri.action(action: 'index')}" method="get">
+    <input type="text" name="assetId" placeholder="enter Asset Id"/>
+    <button type="submit">Show asset</button>
+</form>
+
+<f:if condition="{assetId}">
+    <h1>Asset {assetId}</h1>
+    <f:if condition="{asset}" else="<em>The asset has been deleted!</em>">
+        <h2>{asset.title}</h2>
+        <neos.media:image image="{asset}" alt="a sample image without scaling" />
+    </f:if>
+
+    <script>
+        const assetId = '{assetId}';
+        let etag = '{etag}';
+    /*<![CDATA[*/
+    async function poll() {
+        const headers = etag ? {'If-None-Match': etag} : {};
+        const response = await fetch('/__recent-asset-changes', {headers});
+        if (response.status === 304) {
+            console.log('..no changes');
+            return;
+        }
+        etag = response.headers.get('E-Tag');
+        const changedAssetIds = await response.json();
+        if (!changedAssetIds.includes(assetId)) {
+            console.log('asset id "' + assetId + '" not modified..');
+            return;
+        }
+        console.log('asset id "' + assetId + '" modified, reloading');
+        location.reload();
+    }
+    poll();
+    setInterval(poll, 1000);
+    /*]]>*/</script>
+</f:if>

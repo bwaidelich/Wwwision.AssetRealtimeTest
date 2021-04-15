@@ -1,0 +1,7 @@
+Neos:
+  Flow:
+    http:
+      middlewares:
+        'Wwwision.AssetRealtimeTest:pollingEndpoint':
+          position: 'before routing'
+          middleware: 'Wwwision\AssetRealtimeTest\PollingEndpointMiddleware'

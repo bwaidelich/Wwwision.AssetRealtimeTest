@@ -1,0 +1,19 @@
+{
+    "name": "wwwision/asset-realtime-test",
+    "description": "Just a PoC to test pushing of asset changes to the client",
+    "type": "neos-package",
+    "require": {
+        "neos/flow": "^7",
+        "neos/media": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wwwision\\AssetRealtimeTest\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Wwwision.AssetRealtimeTest"
+        }
+    }
+}

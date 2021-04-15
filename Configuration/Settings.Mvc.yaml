@@ -1,0 +1,5 @@
+Neos:
+  Flow:
+    mvc:
+      routes:
+        'Wwwision.AssetRealtimeTest': true

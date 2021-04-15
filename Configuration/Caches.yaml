@@ -1,0 +1,3 @@
+Wwwision_AssetRealtimeTest_PollingCache:
+  frontend: Neos\Cache\Frontend\StringFrontend
+  backend: Neos\Cache\Backend\FileBackend

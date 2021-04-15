@@ -1,0 +1,12 @@
+'Wwwision\AssetRealtimeTest\AssetChangeLog':
+  arguments:
+    1:
+      object:
+        factoryObjectName: Neos\Flow\Cache\CacheManager
+        factoryMethodName: getCache
+        arguments:
+          1:
+            value: Wwwision_AssetRealtimeTest_PollingCache
+    2:
+      # cache lifetime
+      value: 10
